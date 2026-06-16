@@ -1,4 +1,9 @@
-# Popis Dat (Data Description) Ontology Change Log
+# Data Description Ontology Change Log
+
+## 2.0.0 - 2026-06-16
+- IRIs are based on English names
+- major revisions in ontology concepts, removed Glossary and Model, Vocabulary is now subclass of bot skos:ConceptScheme and owl:Ontology
+- descriptions of concepts are still missing
 
 ## 1.0.9 - 2024-07-18
 - Remove pdp:term, replace with skos:Concept if neccesaary

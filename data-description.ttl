@@ -43,7 +43,7 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
                                                                 bibo:status "Specification"@en , "Specifikace"@cs ;
                                                                 vann:preferredNamespacePrefix "dd" ;
                                                                 vann:preferredNamespaceUri "http://onto.fel.cvut.cz/ontologies/data-description/" ;
-                                                                schema:codeRepository "https://github.com/kbss-cvut/popis-dat-ontology.git"^^xsd:anyURI ; 
+                                                                schema:codeRepository "https://github.com/kbss-cvut/data-description.git"^^xsd:anyURI ; 
                                                                 rdfs:label "Data Description Ontology"@en ,
                                                                            "Ontologie pro Popis dat"@cs ;
                                                                 owl:versionInfo "2.0.0" .

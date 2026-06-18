@@ -234,6 +234,7 @@ dd:has-attribute-of-database-table a skos:Concept, owl:ObjectProperty ;
 
 #dd:dokument a skos:Concept . 
 dd:document a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:resource ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Document"@en, "Dokument"@cs .
 

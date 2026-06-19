@@ -10,13 +10,13 @@
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dd: <http://onto.fel.cvut.cz/ontologies/data-description/> .
-@prefix slovníky: <https://slovník.gov.cz/generický/datový-slovník-ofn-slovníků/pojem/> .
 @base <http://onto.fel.cvut.cz/ontologies/data-description/> .
 
 <http://onto.fel.cvut.cz/ontologies/data-description> rdf:type owl:Ontology, skos:ConceptScheme ;
                                                                 owl:versionIRI <http://onto.fel.cvut.cz/ontologies/data-description/version/2.0.0> ;
                                                                 dct:contributor <https://orcid.org/0000-0002-2451-2348> ;
                                                                 dct:creator <https://orcid.org/0000-0002-3844-426X> ;
+                                                                dct:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
                                                                 dct:description """The ontology for data description provides a unified framework for describing data structures and data sources through vocabularies and their terms, including provenance. A 'vocabulary' is an instance of the classes 'skos:ConceptScheme' and 'owl:Ontology', and a 'term' is an instance of 'skos:Concept'. The ontology contains a list of concepts and their descriptions, which are bound to a specific source ('data-source', or 'record-source' for specific records), and have a meaning given in the context of a given entity (usually a document or dataset).
 
 The vocabulary and the terms in it describe the basic entity, which is represented in the ontology by the concept 'resource'. Its specializations are 'dataset', 'database' and 'file'. The concept 'dataset' is aggregateable into the class 'catalogue'. The ontology is used to describe these sources through 'records'. A specific case of a 'record' is a 'term'. The description of a dataset using 'records' is collected in a 'vocabulary'.
@@ -34,8 +34,8 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
 """@cs ;
                                                                 dct:rights <https://creativecommons.org/licenses/by/4.0/> ;
                                                                 dct:title "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
-                                                                dct:abstract "Data Description Ontology is a fundamental ontology for description of various data sources and associated documents using vocabularies and records. It is based on the RDF(s)/OWL."@en ,
-                                                                             "Ontologie pro Popis dat slouží jako základní ontologie popisující libovolné datové zdroje a dokumenty prostřednictvím slovníků a záznamů. Vychází ze základních ontologií RDF(s)/OWL."@cs ;
+                                                                dct:abstract "Data Description Ontology is a fundamental ontology for description of various data sources and associated documents using vocabularies and records. It is based on the RDF(s)/OWL, using Simple Knowledge Organisation System (SKOS) and Dublin Core terms."@en ,
+                                                                             "Ontologie pro Popis dat slouží jako základní ontologie popisující libovolné datové zdroje a dokumenty prostřednictvím slovníků a záznamů. Vychází ze základních ontologií RDF(s)/OWL a požívá Simple Knowledge Organisation System (SKOS) a Dublin Core terms."@cs ;
                                                                 dct:bibliographicCitation "Michal Med, Martin Ledvinka. Data Description Ontology. Available from: http://onto.fel.cvut.cz/ontologies/data-description/"@en ,
                                                                                           "Michal Med, Martin Ledvinka. Ontologie pro Popis dat. Získáno z: http://onto.fel.cvut.cz/ontologies/data-description/"@cs ;
                                                                 dct:created "2026-06-16" ;
@@ -92,15 +92,16 @@ dd:codelist a skos:Concept, owl:Class ;
 
 #dd:databázová-tabulka a skos:Concept . 
 dd:database-table a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-  skos:prefLabel "Database table"@en, "Databázová tabulka"@cs .
+    skos:prefLabel "Database table"@en, "Databázová tabulka"@cs .
 
 #dd:má-heslo a skos:Concept . 
 dd:has-password a skos:Concept, owl:DatatypeProperty ;
     rdfs:domain dd:user ;
     rdfs:range rdfs:Literal ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-  skos:prefLabel "Has password"@en, "Má heslo"@cs .
+    skos:prefLabel "Has password"@en, "Má heslo"@cs .
 
 #dd:má-posledního-editora a skos:Concept . 
 dd:has-last-editor a skos:Concept, owl:ObjectProperty ;
@@ -177,6 +178,7 @@ dd:file a skos:Concept, owl:Class ;
 
 #dd:zdroj a skos:Concept . 
 dd:resource a skos:Concept, owl:Class  ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Resource"@en, "Zdroj"@cs .
 
@@ -275,6 +277,7 @@ dd:data-attribute-of-record a skos:Concept, owl:Class ;
 
 #dd:atribut a skos:Concept . 
 dd:attribute a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Attribute"@en , "Atribut"@cs .
 
@@ -286,6 +289,7 @@ dd:source-of-record a skos:Concept, owl:Class ;
 
 #dd:zdroj-dat a skos:Concept . 
 dd:data-source a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Data source"@en , "Zdroj dat"@cs .
 
@@ -334,11 +338,11 @@ dd:has-statistic-attribute-of-record a skos:Concept, owl:ObjectProperty ;
     skos:prefLabel "Has statistic attribute of record"@en, "Má statistický atribut záznamu"@cs .
 
 #dd:má-hodnotu-z-číselníku a skos:Concept . 
-dd:has-codelist-value a skos:Concept, owl:ObjectProperty ;
+dd:has-value-from-codelist a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:attribute-of-database-table ;
     rdfs:range dd:codelist ;
-    skos:prefLabel "Has codelist value"@en, "Má hodnotu z číselníku"@cs .
+    skos:prefLabel "Has value from codelist"@en, "Má hodnotu z číselníku"@cs .
 
 #dd:referenční-atribut-záznamu a skos:Concept . 
 dd:reference-attribute-of-record a skos:Concept, owl:Class ;
@@ -409,10 +413,10 @@ dd:provides-attribute-of-record a skos:Concept, owl:DatatypeProperty ;
     skos:prefLabel "Poskytuje atribut záznamu"@cs, "Provides attribute of record"@en .
 
 #dd:zdroj-datové-sady a skos:Concept . 
-dd:dataset-source a skos:Concept, owl:Class ;
+dd:source-of-dataset a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:data-source ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Zdroj datové sady"@cs, "Dataset source"@en .
+    skos:prefLabel "Zdroj datové sady"@cs, "Source of dataset"@en .
 
 #dd:databáze a skos:Concept . 
 dd:database a skos:Concept, owl:Class ;
@@ -463,12 +467,13 @@ dd:dataset a skos:Concept, owl:Class ;
 #dd:poskytuje-datovou-sadu a skos:Concept . 
 dd:provides-dataset a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:dataset-source ;
+    rdfs:domain dd:source-of-dataset ;
     rdfs:range dd:dataset ;
     skos:prefLabel "Provides dataset"@en, "Poskytuje datovou sadu"@cs .
 
 #dd:diagram a skos:Concept . 
 dd:diagram a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Diagram"@cs, "Diagram"@en .
 
@@ -481,11 +486,15 @@ dd:is-part-of-document  a skos:Concept, owl:ObjectProperty ;
     skos:prefLabel "Is part of a document"@en, "Je částí dokumentu"@cs .
 
 #dd:má-křestní-jméno (křestní škrtni) a skos:Concept . 
-dd:has-name a skos:Concept, owl:DatatypeProperty ;
+dd:has-first-name a skos:Concept, owl:DatatypeProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:user ;
     rdfs:range xsd:string ;
-    skos:prefLabel "Has name"@en, "Má jméno"@cs .
+    skos:prefLabel "Has first name"@en, "Má jméno"@cs ;
+    rdfs:comment "First name of a user."@en, "Osobní jméno uživatele."@cs ;
+    skos:definition "First name of a user."@en, "Osobní jméno uživatele."@cs ;
+    skos:scopeNote "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs ;
+    dct:description "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs .
 
 #dd:má-datový-atribut-záznamu a skos:Concept . 
 dd:has-data-attribute-of-record a skos:Concept, owl:ObjectProperty ;
@@ -510,6 +519,7 @@ dd:describes-document a skos:Concept, owl:ObjectProperty ;
 
 #dd:uživatel a skos:Concept . 
 dd:user a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Uživatel"@cs, "User"@en .
 
@@ -534,6 +544,7 @@ dd:source-of-attribute-of-record a skos:Concept, owl:Class ;
 
 #dd:změna a skos:Concept . 
 dd:change a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Change"@en, "Změna"@cs .
 
@@ -586,19 +597,20 @@ dd:has-original-value a skos:Concept, owl:AnnotationProperty ;
     #Definition: "Points to the original value of the entity during the change"
 
 #dd:verze-objektu a skos:Concept . 
-dd:object-version a skos:Concept, owl:Class ;
+dd:version-of-object a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze objektu"@cs, "Version of object"@en .
 
 #dd:verze-slovníku a skos:Concept
-dd:vocabulary-version a skos:Concept, owl:Class ;
-    rdfs:subClassOf dd:object-version ;
+dd:version-of-vocabulary a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze slovníku"@cs, "Version of vocabulary"@en .
 
 #dd:verze-pojmu a skos:Concept . 
-dd:term-version a skos:Concept, owl:Class ;
-    rdfs:subClassOf dd:object-version ;
+dd:version-of-term a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze pojmu"@cs, "Version of term"@en .
 
@@ -606,25 +618,25 @@ dd:term-version a skos:Concept, owl:Class ;
 dd:is-version-of a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:object-version ;
+    rdfs:domain dd:version-of-object ;
     rdfs:range owl:Thing ;
     skos:prefLabel "Is version of"@en, "Je verzí"@cs .
 
 #dd:je-verzí-slovníku a skos:Concept . 
 dd:is-version-of-vocabulary a skos:Concept, owl:ObjectProperty ;
     rdfs:subPropertyOf dd:is-version-of ;
-    owl:inverseOf dd:has-vocabulary-version ;
+    owl:inverseOf dd:has-version-of-vocabulary ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:vocabulary-version ;
+    rdfs:domain dd:version-of-vocabulary ;
     rdfs:range dd:vocabulary ;
     skos:prefLabel "Is version of vocabulary"@en, "Je verzí slovníku"@cs .
 
 #dd:je-verzí-pojmu a skos:Concept . 
 dd:is-version-of-term a skos:Concept, owl:ObjectProperty ;
     rdfs:subPropertyOf dd:is-version-of ;
-    owl:inverseOf dd:has-term-version ;
+    owl:inverseOf dd:has-version-of-term ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:term-version ;
+    rdfs:domain dd:version-of-term ;
     rdfs:range dd:term ;
     skos:prefLabel "Is version of term"@en, "Je verzí pojmu"@cs .
 
@@ -633,44 +645,45 @@ dd:has-version a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain owl:Thing ;
-    rdfs:range dd:object-version ;
+    rdfs:range dd:version-of-object ;
     skos:prefLabel "Has version "@en, "Má verzi"@cs .
 
 
 #dd:má-verzi-pojmu
-dd:has-term-version a skos:Concept, owl:ObjectProperty ;
+dd:has-version-of-term a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of-term ;
     rdfs:subPropertyOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:term ;
-    rdfs:range dd:term-version ;
+    rdfs:range dd:version-of-term ;
     skos:prefLabel "Má verzi pojmu"@cs, "Has term version"@en .
 
 #dd:má-verzi-slovníku
-dd:has-vocabulary-version a skos:Concept, owl:ObjectProperty ;
+dd:has-version-of-vocabulary a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of-vocabulary ;
     rdfs:subPropertyOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:vocabulary ;
-    rdfs:range dd:vocabulary-version ;
+    rdfs:range dd:version-of-vocabulary ;
     skos:prefLabel "Má verzi slovníku"@cs, "Has vocabulary version"@en .
 
 #dd:má-datum-a-čas-vytvoření-verze a skos:Concept . 
 dd:has-date-and-time-of-creation-of-version a skos:Concept, owl:DatatypeProperty ;
     rdfs:subPropertyOf dd:has-date-and-time-of-modification ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:version ;
+    rdfs:domain dd:version-of-object ;
     rdfs:range xsd:dateTime ;
     skos:prefLabel "Má datum a čas vytvoření"@cs, "Has date and time of creation"@en .
 
 #dd:stav-pojmu a skos:Concept . 
-dd:term-state a skos:Concept, owl:Class ;
+dd:state-of-term a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Term state"@en, "Stav pojmu"@cs .
+    skos:prefLabel "State of term"@en, "Stav pojmu"@cs .
 
 #dd:má-stav-pojmu
-dd:has-term-state a skos:Concept, owl:ObjectProperty ;
+dd:has-state-of-term a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:term ;
-    rdfs:range dd:term-state ;
-    skos:prefLabel "Has term state"@en, "Má stav pojmu"@cs .
+    rdfs:range dd:state-of-term ;
+    skos:prefLabel "Has state of term"@en, "Má stav pojmu"@cs .

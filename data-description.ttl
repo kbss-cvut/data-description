@@ -485,7 +485,7 @@ dd:is-part-of-document  a skos:Concept, owl:ObjectProperty ;
     skos:prefLabel "Is part of a document"@en, "Je částí dokumentu"@cs .
 
 #dd:má-křestní-jméno (křestní škrtni) a skos:Concept . 
-dd:has-first-name a skos:Concept, owl:DatatypeProperty ;
+dd:has-first-name a owl:DatatypeProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:user ;
     rdfs:range xsd:string ;

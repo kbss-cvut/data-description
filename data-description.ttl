@@ -489,8 +489,10 @@ dd:has-first-name a skos:Concept, owl:DatatypeProperty ;
     rdfs:domain dd:user ;
     rdfs:range xsd:string ;
     skos:prefLabel "Has first name"@en, "Má jméno"@cs ;
+    rdfs:comment "First name of a user."@en, "Osobní jméno uživatele."@cs ;
     skos:definition "First name of a user."@en, "Osobní jméno uživatele."@cs ;
-    skos:scopeNote "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs .
+    skos:scopeNote "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs ;
+    dct:description "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs .
 
 #dd:má-datový-atribut-záznamu a skos:Concept . 
 dd:has-data-attribute-of-record a skos:Concept, owl:ObjectProperty ;

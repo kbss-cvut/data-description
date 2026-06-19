@@ -62,12 +62,6 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
                                      owl:Organization ;
                             foaf:name "České vysoké učení technické v Praze"@cs .
 
-##dd:data-description-object
-#dd:data-description-object a owl:Class ;
- #   rdfs:subClassOf owl:Thing ;
- #   skos:prefLabel "Data description object"@en, "Objekt popisu dat"@cs ;
- #   dct:description "Root class for all concept od the Data Description ontology"@en, "Kořenová třída pro všechny pojmy ontologie pro Popis dat"@cs . 
-
 #dd:term
 dd:term a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:record ;
@@ -490,11 +484,13 @@ dd:is-part-of-document  a skos:Concept, owl:ObjectProperty ;
     skos:prefLabel "Is part of a document"@en, "Je částí dokumentu"@cs .
 
 #dd:má-křestní-jméno (křestní škrtni) a skos:Concept . 
-dd:has-name a skos:Concept, owl:DatatypeProperty ;
+dd:has-first-name a skos:Concept, owl:DatatypeProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:user ;
     rdfs:range xsd:string ;
-    skos:prefLabel "Has name"@en, "Má jméno"@cs .
+    skos:prefLabel "Has first name"@en, "Má jméno"@cs ;
+    skos:definition "First name of a user."@en, "Osobní jméno uživatele."@cs ;
+    skos:scopeNote "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs .
 
 #dd:má-datový-atribut-záznamu a skos:Concept . 
 dd:has-data-attribute-of-record a skos:Concept, owl:ObjectProperty ;

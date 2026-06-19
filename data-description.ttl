@@ -473,6 +473,7 @@ dd:provides-dataset a skos:Concept, owl:ObjectProperty ;
 
 #dd:diagram a skos:Concept . 
 dd:diagram a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Diagram"@cs, "Diagram"@en .
 
@@ -518,6 +519,7 @@ dd:describes-document a skos:Concept, owl:ObjectProperty ;
 
 #dd:uživatel a skos:Concept . 
 dd:user a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Uživatel"@cs, "User"@en .
 
@@ -675,6 +677,7 @@ dd:has-date-and-time-of-creation-of-version a skos:Concept, owl:DatatypeProperty
 
 #dd:stav-pojmu a skos:Concept . 
 dd:state-of-term a skos:Concept, owl:Class ;
+    rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "State of term"@en, "Stav pojmu"@cs .
 

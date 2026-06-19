@@ -413,10 +413,10 @@ dd:provides-attribute-of-record a skos:Concept, owl:DatatypeProperty ;
     skos:prefLabel "Poskytuje atribut záznamu"@cs, "Provides attribute of record"@en .
 
 #dd:zdroj-datové-sady a skos:Concept . 
-dd:dataset-source a skos:Concept, owl:Class ;
+dd:source-of-dataset a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:data-source ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Zdroj datové sady"@cs, "Dataset source"@en .
+    skos:prefLabel "Zdroj datové sady"@cs, "Source of dataset"@en .
 
 #dd:databáze a skos:Concept . 
 dd:database a skos:Concept, owl:Class ;
@@ -467,7 +467,7 @@ dd:dataset a skos:Concept, owl:Class ;
 #dd:poskytuje-datovou-sadu a skos:Concept . 
 dd:provides-dataset a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:dataset-source ;
+    rdfs:domain dd:source-of-dataset ;
     rdfs:range dd:dataset ;
     skos:prefLabel "Provides dataset"@en, "Poskytuje datovou sadu"@cs .
 
@@ -595,20 +595,20 @@ dd:has-original-value a skos:Concept, owl:AnnotationProperty ;
     #Definition: "Points to the original value of the entity during the change"
 
 #dd:verze-objektu a skos:Concept . 
-dd:object-version a skos:Concept, owl:Class ;
+dd:version-of-object a skos:Concept, owl:Class ;
     rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze objektu"@cs, "Version of object"@en .
 
 #dd:verze-slovníku a skos:Concept
-dd:vocabulary-version a skos:Concept, owl:Class ;
-    rdfs:subClassOf dd:object-version ;
+dd:version-of-vocabulary a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze slovníku"@cs, "Version of vocabulary"@en .
 
 #dd:verze-pojmu a skos:Concept . 
-dd:term-version a skos:Concept, owl:Class ;
-    rdfs:subClassOf dd:object-version ;
+dd:version-of-term a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze pojmu"@cs, "Version of term"@en .
 
@@ -616,25 +616,25 @@ dd:term-version a skos:Concept, owl:Class ;
 dd:is-version-of a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:object-version ;
+    rdfs:domain dd:version-of-object ;
     rdfs:range owl:Thing ;
     skos:prefLabel "Is version of"@en, "Je verzí"@cs .
 
 #dd:je-verzí-slovníku a skos:Concept . 
 dd:is-version-of-vocabulary a skos:Concept, owl:ObjectProperty ;
     rdfs:subPropertyOf dd:is-version-of ;
-    owl:inverseOf dd:has-vocabulary-version ;
+    owl:inverseOf dd:has-version-of-vocabulary ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:vocabulary-version ;
+    rdfs:domain dd:version-of-vocabulary ;
     rdfs:range dd:vocabulary ;
     skos:prefLabel "Is version of vocabulary"@en, "Je verzí slovníku"@cs .
 
 #dd:je-verzí-pojmu a skos:Concept . 
 dd:is-version-of-term a skos:Concept, owl:ObjectProperty ;
     rdfs:subPropertyOf dd:is-version-of ;
-    owl:inverseOf dd:has-term-version ;
+    owl:inverseOf dd:has-version-of-term ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:term-version ;
+    rdfs:domain dd:version-of-term ;
     rdfs:range dd:term ;
     skos:prefLabel "Is version of term"@en, "Je verzí pojmu"@cs .
 
@@ -643,44 +643,44 @@ dd:has-version a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain owl:Thing ;
-    rdfs:range dd:object-version ;
+    rdfs:range dd:version-of-object ;
     skos:prefLabel "Has version "@en, "Má verzi"@cs .
 
 
 #dd:má-verzi-pojmu
-dd:has-term-version a skos:Concept, owl:ObjectProperty ;
+dd:has-version-of-term a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of-term ;
     rdfs:subPropertyOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:term ;
-    rdfs:range dd:term-version ;
+    rdfs:range dd:version-of-term ;
     skos:prefLabel "Má verzi pojmu"@cs, "Has term version"@en .
 
 #dd:má-verzi-slovníku
-dd:has-vocabulary-version a skos:Concept, owl:ObjectProperty ;
+dd:has-version-of-vocabulary a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of-vocabulary ;
     rdfs:subPropertyOf dd:has-version ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:vocabulary ;
-    rdfs:range dd:vocabulary-version ;
+    rdfs:range dd:version-of-vocabulary ;
     skos:prefLabel "Má verzi slovníku"@cs, "Has vocabulary version"@en .
 
 #dd:má-datum-a-čas-vytvoření-verze a skos:Concept . 
 dd:has-date-and-time-of-creation-of-version a skos:Concept, owl:DatatypeProperty ;
     rdfs:subPropertyOf dd:has-date-and-time-of-modification ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    rdfs:domain dd:version ;
+    rdfs:domain dd:version-of-object ;
     rdfs:range xsd:dateTime ;
     skos:prefLabel "Má datum a čas vytvoření"@cs, "Has date and time of creation"@en .
 
 #dd:stav-pojmu a skos:Concept . 
-dd:term-state a skos:Concept, owl:Class ;
+dd:state-of-term a skos:Concept, owl:Class ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Term state"@en, "Stav pojmu"@cs .
+    skos:prefLabel "State of term"@en, "Stav pojmu"@cs .
 
 #dd:má-stav-pojmu
-dd:has-term-state a skos:Concept, owl:ObjectProperty ;
+dd:has-state-of-term a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:term ;
-    rdfs:range dd:term-state ;
-    skos:prefLabel "Has term state"@en, "Má stav pojmu"@cs .
+    rdfs:range dd:state-of-term ;
+    skos:prefLabel "Has state of term"@en, "Má stav pojmu"@cs .

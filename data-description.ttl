@@ -338,11 +338,11 @@ dd:has-statistic-attribute-of-record a skos:Concept, owl:ObjectProperty ;
     skos:prefLabel "Has statistic attribute of record"@en, "Má statistický atribut záznamu"@cs .
 
 #dd:má-hodnotu-z-číselníku a skos:Concept . 
-dd:has-codelist-value a skos:Concept, owl:ObjectProperty ;
+dd:has-value-from-codelist a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:attribute-of-database-table ;
     rdfs:range dd:codelist ;
-    skos:prefLabel "Has codelist value"@en, "Má hodnotu z číselníku"@cs .
+    skos:prefLabel "Has value from codelist"@en, "Má hodnotu z číselníku"@cs .
 
 #dd:referenční-atribut-záznamu a skos:Concept . 
 dd:reference-attribute-of-record a skos:Concept, owl:Class ;

@@ -189,8 +189,8 @@ dd:record a skos:Concept, owl:Class ;
     rdfs:subClassOf skos:Concept  ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Record"@en, "Záznam"@cs ;
-    skos:definition "Concept that represents a single described element of a resource, such as a field, a column, a class or a value, within a vocabulary."@en, "Pojem, který reprezentuje jeden popisovaný prvek zdroje, například položku, sloupec, třídu nebo hodnotu, v rámci slovníku."@cs ;
-    rdfs:comment "Concept that represents a single described element of a resource, such as a field, a column, a class or a value, within a vocabulary."@en, "Pojem, který reprezentuje jeden popisovaný prvek zdroje, například položku, sloupec, třídu nebo hodnotu, v rámci slovníku."@cs .
+    skos:definition "Concept that represents a single described element of a resource, such as a field, a column, a class or a value."@en, "Pojem, který reprezentuje jeden popisovaný prvek zdroje, například položku, sloupec, třídu nebo hodnotu."@cs ;
+    rdfs:comment "Concept that represents a single described element of a resource, such as a field, a column, a class or a value."@en, "Pojem, který reprezentuje jeden popisovaný prvek zdroje, například položku, sloupec, třídu nebo hodnotu."@cs .
 
 #dd:je-záznamem-datové-sady a skos:Concept .
 dd:is-record-of-dataset a skos:Concept, owl:ObjectProperty ;
@@ -199,8 +199,8 @@ dd:is-record-of-dataset a skos:Concept, owl:ObjectProperty ;
     rdfs:range dd:dataset ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
   skos:prefLabel "Is record of data set"@en, "Je záznamem datové sady"@cs ;
-    skos:definition "Relation linking a record to the dataset it is a record of."@en, "Vztah, který propojuje záznam s datovou sadou, jejímž je záznamem."@cs ;
-    rdfs:comment "Relation linking a record to the dataset it is a record of."@en, "Vztah, který propojuje záznam s datovou sadou, jejímž je záznamem."@cs .
+    skos:definition "Relation linking a record to the dataset."@en, "Vztah, který propojuje záznam s datovou sadou."@cs ;
+    rdfs:comment "Relation linking a record to the dataset."@en, "Vztah, který propojuje záznam s datovou sadou."@cs .
 
 #dd:poskytuje-záznam a skos:Concept . 
 dd:provides-record a skos:Concept, owl:ObjectProperty  ;
@@ -208,8 +208,8 @@ dd:provides-record a skos:Concept, owl:ObjectProperty  ;
     rdfs:range dd:record ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Provides record"@en, "Poskytuje záznam"@cs ;
-    skos:definition "Relation linking a source of records to a record it provides."@en, "Vztah, který propojuje zdroj záznamů se záznamem, který poskytuje."@cs ;
-    rdfs:comment "Relation linking a source of records to a record it provides."@en, "Vztah, který propojuje zdroj záznamů se záznamem, který poskytuje."@cs .
+    skos:definition "Relation linking a source of records to a record it provides."@en, "Vztah, který propojuje zdroj záznamů se samotným záznamem."@cs ;
+    rdfs:comment "Relation linking a source of records to a record it provides."@en, "Vztah, který propojuje zdroj záznamů se samotným záznamem."@cs .
 
 #dd:statistický-atribut-záznamu a skos:Concept . 
 dd:statistic-attribute-of-record a skos:Concept, owl:Class ;
@@ -371,8 +371,8 @@ dd:vocabulary a skos:Concept, owl:Class ;
     skos:inScheme  <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Slovník"@cs, "Vocabulary"@en ;
     rdfs:subClassOf owl:Ontology , skos:ConceptScheme ;
-    skos:definition "Concept scheme and ontology that collects the terms describing a resource or a document."@en, "Systém pojmů a zároveň ontologie, která shromažďuje pojmy popisující zdroj nebo dokument."@cs ;
-    rdfs:comment "Concept scheme and ontology that collects the terms describing a resource or a document."@en, "Systém pojmů a zároveň ontologie, která shromažďuje pojmy popisující zdroj nebo dokument."@cs .
+    skos:definition "Concept scheme and ontology that collects the terms describing a resource or a document and relations between them."@en, "Systém pojmů a zároveň ontologie, která shromažďuje pojmy popisující zdroj nebo dokument a vztahy mezi nimi."@cs ;
+    rdfs:comment "Concept scheme and ontology that collects the terms describing a resource or a document and relations between them."@en, "Systém pojmů a zároveň ontologie, která shromažďuje pojmy popisující zdroj nebo dokument a vztahy mezi nimi."@cs .
 
 #dd:má-datum-a-čas-modifikace a skos:Concept . 
 dd:has-date-and-time-of-modification a skos:Concept, owl:DatatypeProperty ;
@@ -391,7 +391,6 @@ dd:data-attribute-of-record a skos:Concept, owl:Class ;
     skos:prefLabel "Data attribute of record"@en , "Datový atribut záznamu"@cs ;
     skos:definition "Attribute of a record whose value is a literal, such as a text, a number or a date."@en, "Atribut záznamu, jehož hodnotou je literál, například text, číslo nebo datum."@cs ;
     rdfs:comment "Attribute of a record whose value is a literal, such as a text, a number or a date."@en, "Atribut záznamu, jehož hodnotou je literál, například text, číslo nebo datum."@cs .
-
 
 #dd:atribut a skos:Concept . 
 dd:attribute a skos:Concept, owl:Class ;
@@ -451,8 +450,8 @@ dd:is-in-context a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:term ;
     rdfs:range dd:resource ;
     skos:prefLabel "Is in context"@en , "Je v kontextu"@cs ;
-    skos:definition "Relation linking a term to the resource that gives the term its meaning."@en, "Vztah, který propojuje pojem se zdrojem, v jehož kontextu má pojem svůj význam."@cs ;
-    rdfs:comment "Relation linking a term to the resource that gives the term its meaning."@en, "Vztah, který propojuje pojem se zdrojem, v jehož kontextu má pojem svůj význam."@cs .
+    skos:definition "Relation linking a term to the resource that gives the term its meaning."@en, "Vztah, který propojuje pojem se zdrojem určujícím kontext jeho významu."@cs ;
+    rdfs:comment "Relation linking a term to the resource that gives the term its meaning."@en, "Vztah, který propojuje pojem se zdrojem určujícím kontext jeho významu."@cs .
 
 #dd:je-statistickým-atributem-záznamu a skos:Concept . 
 dd:is-statistic-attribute-of-record a skos:Concept, owl:ObjectProperty ;
@@ -503,8 +502,8 @@ dd:is-in-context-of-dataset a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:range dd:dataset ;
     skos:prefLabel "Is in context of dataset"@en, "Je v kontextu datové sady"@cs ;
-    skos:definition "Relation linking a term to the dataset that gives the term its meaning."@en, "Vztah, který propojuje pojem s datovou sadou, v jejímž kontextu má pojem svůj význam."@cs ;
-    rdfs:comment "Relation linking a term to the dataset that gives the term its meaning."@en, "Vztah, který propojuje pojem s datovou sadou, v jejímž kontextu má pojem svůj význam."@cs .
+    skos:definition "Relation linking a term to the dataset that gives the term its meaning."@en, "Vztah, který propojuje pojem s datovou sadou určující jeho význam."@cs ;
+    rdfs:comment "Relation linking a term to the dataset that gives the term its meaning."@en, "Vztah, který propojuje pojem s datovou sadou určující jeho význam."@cs .
 
 #dd:dokument-legislativní-povahy  a skos:Concept . 
 dd:document-of-legislative-nature a skos:Concept, owl:Class ;
@@ -624,8 +623,8 @@ dd:contains-root-term a skos:Concept, owl:ObjectProperty ;
     skos:broader dd:contains-term ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Contains root term"@en, "Obsahuje kořenový pojem"@cs ;
-    skos:definition "Relation linking a concept scheme to a concept at the top of its hierarchy."@en, "Vztah, který propojuje systém pojmů s pojmem na vrcholu jeho hierarchie."@cs ;
-    rdfs:comment "Relation linking a concept scheme to a concept at the top of its hierarchy."@en, "Vztah, který propojuje systém pojmů s pojmem na vrcholu jeho hierarchie."@cs .
+    skos:definition "Relation linking a concept scheme to a concept at the top of its hierarchy."@en, "Vztah, který propojuje konceptuální schéma s pojmem na vrcholu jeho hierarchie."@cs ;
+    rdfs:comment "Relation linking a concept scheme to a concept at the top of its hierarchy."@en, "Vztah, který propojuje konceptuální schéma s pojmem na vrcholu jeho hierarchie."@cs .
 
 #dd:obsahuje-pojem a skos:Concept . 
 dd:contains-term a skos:Concept, owl:ObjectProperty ;
@@ -634,8 +633,8 @@ dd:contains-term a skos:Concept, owl:ObjectProperty ;
     rdfs:domain skos:ConceptScheme ;
     rdfs:range skos:Concept ;
     skos:prefLabel "Contains term"@en, "Obsahuje pojem"@cs ;
-    skos:definition "Relation linking a concept scheme to a concept it contains."@en, "Vztah, který propojuje systém pojmů s pojmem, který obsahuje."@cs ;
-    rdfs:comment "Relation linking a concept scheme to a concept it contains."@en, "Vztah, který propojuje systém pojmů s pojmem, který obsahuje."@cs .
+    skos:definition "Relation linking a concept scheme to a concept it contains."@en, "Vztah, který propojuje konceptuální schéma s pojmem, který obsahuje."@cs ;
+    rdfs:comment "Relation linking a concept scheme to a concept it contains."@en, "Vztah, který propojuje konceptuální schéma s pojmem, který obsahuje."@cs .
 
 #dd:má-soubor a skos:Concept . 
 dd:has-file a skos:Concept, owl:ObjectProperty ;
@@ -646,6 +645,7 @@ dd:has-file a skos:Concept, owl:ObjectProperty ;
     skos:definition "Relation linking a document to a file that is its physical manifestation."@en, "Vztah, který propojuje dokument se souborem, který je jeho fyzickou manifestací."@cs ;
     rdfs:comment "Relation linking a document to a file that is its physical manifestation."@en, "Vztah, který propojuje dokument se souborem, který je jeho fyzickou manifestací."@cs .
 
+### TODO: IDK zveřejněným NEBO spravovaným??
 #dd:datová-sada a skos:Concept . 
 dd:dataset a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:resource ;
@@ -655,22 +655,22 @@ dd:dataset a skos:Concept, owl:Class ;
     skos:definition "Resource that is a collection of data published or curated as a single unit."@en, "Zdroj, který je souborem dat zveřejněným nebo spravovaným jako jeden celek."@cs ;
     rdfs:comment "Resource that is a collection of data published or curated as a single unit."@en, "Zdroj, který je souborem dat zveřejněným nebo spravovaným jako jeden celek."@cs .
 
-#dd:poskytuje-datovou-sadu a skos:Concept . 
+#dd:poskytuje-datovou-sadu a skos:Concept .
 dd:provides-dataset a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:source-of-dataset ;
     rdfs:range dd:dataset ;
     skos:prefLabel "Provides dataset"@en, "Poskytuje datovou sadu"@cs ;
-    skos:definition "Relation linking a source of datasets to a dataset it provides."@en, "Vztah, který propojuje zdroj datových sad s datovou sadou, kterou poskytuje."@cs ;
-    rdfs:comment "Relation linking a source of datasets to a dataset it provides."@en, "Vztah, který propojuje zdroj datových sad s datovou sadou, kterou poskytuje."@cs .
+    skos:definition "Relation linking a source of dataset to a dataset it provides."@en, "Vztah, který propojuje zdroj datové sady s datovou sadou, kterou poskytuje."@cs ;
+    rdfs:comment "Relation linking a source of dataset to a dataset it provides."@en, "Vztah, který propojuje zdroj datové sady s datovou sadou, kterou poskytuje."@cs .
 
 #dd:diagram a skos:Concept . 
 dd:diagram a skos:Concept, owl:Class ;
     rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Diagram"@cs, "Diagram"@en ;
-    skos:definition "Graphical representation of the structure of or the relations between the terms of a vocabulary."@en, "Grafické znázornění struktury pojmů slovníku nebo vztahů mezi nimi."@cs ;
-    rdfs:comment "Graphical representation of the structure of or the relations between the terms of a vocabulary."@en, "Grafické znázornění struktury pojmů slovníku nebo vztahů mezi nimi."@cs .
+    skos:definition "Graphical representation of the structure of and the relations between the terms of a vocabulary."@en, "Grafické znázornění struktury pojmů slovníku a vztahů mezi nimi."@cs ;
+    rdfs:comment "Graphical representation of the structure of and the relations between the terms of a vocabulary."@en, "Grafické znázornění struktury pojmů slovníku a vztahů mezi nimi."@cs .
 
 #dd:je-částí-dokumentu a skos:Concept . 
 dd:is-part-of-document  a skos:Concept, owl:ObjectProperty ;
@@ -690,8 +690,8 @@ dd:has-first-name a skos:Concept, owl:DatatypeProperty ;
     skos:prefLabel "Has first name"@en, "Má jméno"@cs ;
     rdfs:comment "First name of a user."@en, "Osobní jméno uživatele."@cs ;
     skos:definition "First name of a user."@en, "Osobní jméno uživatele."@cs ;
-    skos:scopeNote "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs ;
-    dct:description "Jedná se pouze o křestní jméno, nikoliv příjmení."@cs .
+    skos:scopeNote "Jedná se pouze o jméno, nikoliv příjmení."@cs ;
+    dct:description "Jedná se pouze o jméno, nikoliv příjmení."@cs .
 
 #dd:má-datový-atribut-záznamu a skos:Concept . 
 dd:has-data-attribute-of-record a skos:Concept, owl:ObjectProperty ;
@@ -719,8 +719,8 @@ dd:describes-document a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:vocabulary ;
     rdfs:range dd:document ;
     skos:prefLabel "Describes document"@en, "Popisuje dokument"@cs ;
-    skos:definition "Relation linking a vocabulary to the document whose terms it describes."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje."@cs ;
-    rdfs:comment "Relation linking a vocabulary to the document whose terms it describes."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje."@cs .
+    skos:definition "Relation linking a vocabulary to the document whose terms it describes or in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje, nebo v jehož kontextu je definuje."@cs ;
+    rdfs:comment "Relation linking a vocabulary to the document whose terms it describes or in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje, nebo v jehož kontextu je definuje."@cs .
 
 #dd:uživatel a skos:Concept . 
 dd:user a skos:Concept, owl:Class ;
@@ -791,6 +791,33 @@ dd:deletion-of-entity a skos:Concept, owl:Class ;
     skos:definition "Change that removes an entity."@en, "Změna, kterou entita zaniká."@cs ;
     rdfs:comment "Change that removes an entity."@en, "Změna, kterou entita zaniká."@cs .
 
+##dd:nahrazení-entity a skos:Concept .
+dd:replacement-of-entity a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:change ;
+    skos:broader dd:change ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Replacement of entity"@en, "Nahrazení entity"@cs ;
+    skos:definition "Change that replaces entity identifier with other identifier."@en, "Změna, která nahrazuje identifkátor entity jiným."@cs ;
+    rdfs:comment "Change that replaces entity identifier with other identifier."@en, "Změna, která nahrazuje identifkátor entity jiným."@cs .
+
+#dd:má-původní-entitu a skos:Concept .
+dd:has-replaced-entity a skos:Concept, rdfs:ObjectProperty ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    rdfs:domain dd:replacement-of-entity ;
+    rdfs:range owl:Thing ;
+    skos:prefLabel "Has replaced entity"@en, "Má původní entitu"@cs ;
+    skos:definition "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení entity s původní entitou."@cs ;
+    rdfs:comment "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení entity s původní entitou."@cs .
+
+#dd:má-novou-entitu a skos:Concept .
+dd:has-replacing-entity a skos:Concept, rdfs:ObjectProperty ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    rdfs:domain dd:replacement-of-entity ;
+    rdfs:range owl:Thing ;
+    skos:prefLabel "Has replacing entity"@en, "Má novou entity"@cs ;
+    skos:definition "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení entity s novou entitou."@cs ;
+    rdfs:comment "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení entity s novou entitou."@cs .
+
 #dd:má-změněnou-entitu a skos:Concept . 
 dd:has-changed-entity a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
@@ -843,8 +870,8 @@ dd:version-of-vocabulary a skos:Concept, owl:Class ;
     skos:broader dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze slovníku"@cs, "Version of vocabulary"@en ;
-    skos:definition "Version of object that captures the state of a vocabulary."@en, "Verze objektu, která zachycuje stav slovníku."@cs ;
-    rdfs:comment "Version of object that captures the state of a vocabulary."@en, "Verze objektu, která zachycuje stav slovníku."@cs .
+    skos:definition "Snapshot of the state of a vocabulary at a given point in time."@en, "Zachycený stav slovníku v daném okamžiku."@cs ;
+    rdfs:comment "Snapshot of the state of a vocabulary at a given point in time."@en, "Zachycený stav slovníku v daném okamžiku."@cs .
 
 #dd:verze-pojmu a skos:Concept . 
 dd:version-of-term a skos:Concept, owl:Class ;
@@ -852,8 +879,8 @@ dd:version-of-term a skos:Concept, owl:Class ;
     skos:broader dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Verze pojmu"@cs, "Version of term"@en ;
-    skos:definition "Version of object that captures the state of a term."@en, "Verze objektu, která zachycuje stav pojmu."@cs ;
-    rdfs:comment "Version of object that captures the state of a term."@en, "Verze objektu, která zachycuje stav pojmu."@cs .
+    skos:definition "Snapshot of the state of a term at a given point in time."@en, "Zachycený stav pojmu v daném okamžiku."@cs ;
+    rdfs:comment "Snapshot of the state of a term at a given point in time."@en, "Zachycený stav pojmu v daném okamžiku."@cs .
 
 #dd:je-verzí a skos:Concept . 
 dd:is-version-of a skos:Concept, owl:ObjectProperty ;

@@ -24,8 +24,8 @@
     dct:title "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     rdfs:label "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     dct:abstract "Data Description Ontology is a fundamental ontology for description of various data sources and associated documents using vocabularies and records. It is based on the RDF(s)/OWL, using Simple Knowledge Organisation System (SKOS) and Dublin Core terms."@en ,
-                 "Ontologie pro Popis dat slouží jako základní ontologie popisující libovolné datové zdroje a dokumenty prostřednictvím slovníků a záznamů. Vychází ze základních ontologií RDF(s)/OWL a požívá Simple Knowledge Organisation System (SKOS) a Dublin Core terms."@cs ;
-    dct:description """The ontology for data description provides a unified framework for describing data structures and data sources through vocabularies and their terms, including provenance. A 'vocabulary' is an instance of the classes 'skos:ConceptScheme' and 'owl:Ontology', and a 'term' is an instance of 'skos:Concept'. The ontology contains a list of concepts and their descriptions, which are bound to a specific source ('data-source', or 'record-source' for specific records), and have a meaning given in the context of a given entity (usually a document or dataset).
+                 "Ontologie pro Popis dat slouží jako základní ontologie popisující libovolné datové zdroje a dokumenty prostřednictvím slovníků a záznamů. Vychází ze základních ontologií RDF(s)/OWL a používá Simple Knowledge Organisation System (SKOS) a Dublin Core terms."@cs ;
+    dct:description """The ontology for data description provides a unified framework for describing data structures and data sources through vocabularies and their terms, including provenance. A 'vocabulary' is an instance of the classes 'skos:ConceptScheme' and 'owl:Ontology', and a 'term' is an instance of 'skos:Concept'. The ontology contains a list of concepts and their descriptions, which are bound to a specific source ('data-source', or 'source-of-record' for specific records), and have a meaning given in the context of a given entity (usually a document or dataset).
 
 The vocabulary and the terms in it describe the basic entity, which is represented in the ontology by the concept 'resource'. Its specializations are 'dataset', 'database' and 'file'. The concept 'dataset' is aggregateable into the class 'catalogue'. The ontology is used to describe these sources through 'records'. A specific case of a 'record' is a 'term'. The description of a dataset using 'records' is collected in a 'vocabulary'.
 
@@ -43,7 +43,7 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
     dct:creator <https://orcid.org/0000-0002-3844-426X> ;
     dct:contributor <https://orcid.org/0000-0002-2451-2348> ;
     dct:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
-    dct:rights <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:rights <https://creativecommons.org/licenses/by-sa/4.0/> ;
     dct:created "2026-06-16" ;
     dct:bibliographicCitation "Michal Med, Martin Ledvinka. Data Description Ontology. Available from: http://onto.fel.cvut.cz/ontologies/data-description/"@en ,
                               "Michal Med, Martin Ledvinka. Ontologie pro Popis dat. Získáno z: http://onto.fel.cvut.cz/ontologies/data-description/"@cs ;
@@ -71,6 +71,8 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
                        dd:has-new-value ,
                        dd:has-original-value ,
                        dd:has-password ,
+                       dd:has-replaced-entity ,
+                       dd:has-replacing-entity ,
                        dd:has-resource ,
                        dd:has-state-of-term ,
                        dd:has-surname ,
@@ -98,17 +100,17 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
 ################################################################################
 
 <https://orcid.org/0000-0002-2451-2348>
-    a owl:NamedIndividual, owl:Person ;
+    a owl:NamedIndividual, foaf:Person ;
     org:memberOf <https://ror.org/03kqpb082> ;
     foaf:name "Martin Ledvinka" .
 
 <https://orcid.org/0000-0002-3844-426X>
-    a owl:NamedIndividual, owl:Person ;
+    a owl:NamedIndividual, foaf:Person ;
     org:memberOf <https://ror.org/03kqpb082> ;
     foaf:name "Michal Med" .
 
 <https://ror.org/03kqpb082>
-    a owl:NamedIndividual, owl:Organization ;
+    a owl:NamedIndividual, org:Organization ;
     foaf:name "České vysoké učení technické v Praze"@cs .
 
 ################################################################################
@@ -543,7 +545,7 @@ dd:provides-dataset a skos:Concept, owl:ObjectProperty ;
                  "Vztah, který propojuje zdroj datové sady s datovou sadou, kterou poskytuje."@cs .
 
 ### dd:provides-attribute-of-record  (formerly dd:poskytuje-atribut-záznamu)
-dd:provides-attribute-of-record a skos:Concept, owl:DatatypeProperty ;
+dd:provides-attribute-of-record a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:source-of-attribute-of-record ;
     rdfs:range dd:attribute-of-record ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
@@ -594,7 +596,7 @@ dd:reference-attribute-of-record a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:attribute-of-record ;
     skos:broader dd:attribute-of-record ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Reference attribute of record"@en, "referenční atribut záznamu"@cs ;
+    skos:prefLabel "Reference attribute of record"@en, "Referenční atribut záznamu"@cs ;
     skos:definition "Attribute of a record whose value refers to another entity."@en ,
                     "Atribut záznamu, jehož hodnota odkazuje na jinou entitu."@cs ;
     rdfs:comment "Attribute of a record whose value refers to another entity."@en ,
@@ -616,7 +618,7 @@ dd:attribute-of-database-table a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:attribute ;
     skos:broader dd:attribute ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Attribute of databse table"@en, "Atribut databázové tabulky"@cs ;
+    skos:prefLabel "Attribute of database table"@en, "Atribut databázové tabulky"@cs ;
     skos:definition "Attribute of a database table, i.e. one of its columns."@en ,
                     "Atribut databázové tabulky, tj. jeden z jejích sloupců."@cs ;
     rdfs:comment "Attribute of a database table, i.e. one of its columns."@en ,
@@ -783,7 +785,7 @@ dd:has-attribute-of-database-table a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:database-table ;
     rdfs:range dd:attribute-of-database-table ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Has data set attribute"@en, "Má atribut databázové tabulky"@cs ;
+    skos:prefLabel "Has attribute of database table"@en, "Má atribut databázové tabulky"@cs ;
     skos:definition "Relation linking a database table to one of its attributes."@en ,
                     "Vztah, který propojuje databázovou tabulku s jedním z jejích atributů."@cs ;
     rdfs:comment "Relation linking a database table to one of its attributes."@en ,
@@ -855,7 +857,7 @@ dd:has-username a skos:Concept, owl:DatatypeProperty ;
     rdfs:domain dd:user ;
     rdfs:range xsd:string ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Has username"@en, "Má uživatelksé jméno"@cs ;
+    skos:prefLabel "Has username"@en, "Má uživatelské jméno"@cs ;
     skos:definition "Name under which a user logs in to the system."@en ,
                     "Jméno, pod kterým se uživatel přihlašuje do systému."@cs ;
     rdfs:comment "Name under which a user logs in to the system."@en ,
@@ -988,9 +990,9 @@ dd:replacement-of-entity a skos:Concept, owl:Class ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Replacement of entity"@en, "Nahrazení entity"@cs ;
     skos:definition "Change that replaces entity identifier with other identifier."@en ,
-                    "Změna, která nahrazuje identifkátor entity jiným."@cs ;
+                    "Změna, která nahrazuje identifikátor entity jiným."@cs ;
     rdfs:comment "Change that replaces entity identifier with other identifier."@en ,
-                 "Změna, která nahrazuje identifkátor entity jiným."@cs .
+                 "Změna, která nahrazuje identifikátor entity jiným."@cs .
 
 ### dd:has-changed-entity  (formerly dd:má-změněnou-entitu)
 dd:has-changed-entity a skos:Concept, owl:ObjectProperty ;
@@ -1037,7 +1039,7 @@ dd:has-original-value a skos:Concept, owl:AnnotationProperty ;
                  "Hodnota změněného atributu před úpravou entity."@cs .
 
 ### dd:has-replaced-entity  (formerly dd:má-původní-entitu)
-dd:has-replaced-entity a skos:Concept, rdfs:ObjectProperty ;
+dd:has-replaced-entity a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:replacement-of-entity ;
     rdfs:range owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
@@ -1048,11 +1050,11 @@ dd:has-replaced-entity a skos:Concept, rdfs:ObjectProperty ;
                  "Vztah, který propojuje nahrazení entity s původní entitou."@cs .
 
 ### dd:has-replacing-entity  (formerly dd:má-novou-entitu)
-dd:has-replacing-entity a skos:Concept, rdfs:ObjectProperty ;
+dd:has-replacing-entity a skos:Concept, owl:ObjectProperty ;
     rdfs:domain dd:replacement-of-entity ;
     rdfs:range owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Has replacing entity"@en, "Má novou entity"@cs ;
+    skos:prefLabel "Has replacing entity"@en, "Má novou entitu"@cs ;
     skos:definition "Relation linking a replacement of entity to the new entity."@en ,
                     "Vztah, který propojuje nahrazení entity s novou entitou."@cs ;
     rdfs:comment "Relation linking a replacement of entity to the new entity."@en ,
@@ -1100,7 +1102,7 @@ dd:has-version a skos:Concept, owl:ObjectProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range dd:version-of-object ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
-    skos:prefLabel "Has version "@en, "Má verzi"@cs ;
+    skos:prefLabel "Has version"@en, "Má verzi"@cs ;
     skos:definition "Relation linking an entity to one of its versions."@en ,
                     "Vztah, který propojuje entitu s jednou z jejích verzí."@cs ;
     rdfs:comment "Relation linking an entity to one of its versions."@en ,

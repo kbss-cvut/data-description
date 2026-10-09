@@ -400,7 +400,7 @@ dd:attribute a skos:Concept, owl:Class ;
     skos:definition "Characteristic of an entity that can take a value."@en, "Charakteristika entity, která může nabývat hodnoty."@cs ;
     rdfs:comment "Characteristic of an entity that can take a value."@en, "Charakteristika entity, která může nabývat hodnoty."@cs .
 
-### TODO:IDK #dd:zdroj-záznamu a skos:Concept . 
+#dd:zdroj-záznamu a skos:Concept . 
 dd:source-of-record a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:data-source ;
     skos:broader dd:data-source ;
@@ -409,7 +409,7 @@ dd:source-of-record a skos:Concept, owl:Class ;
     skos:definition "Data source that provides records."@en, "Zdroj dat, který poskytuje záznamy."@cs ;
     rdfs:comment "Data source that provides records."@en, "Zdroj dat, který poskytuje záznamy."@cs .
 
-### TODO:IDK #dd:zdroj-dat a skos:Concept . 
+#dd:zdroj-dat a skos:Concept . 
 dd:data-source a skos:Concept, owl:Class ;
     rdfs:subClassOf owl:Thing ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
@@ -417,7 +417,7 @@ dd:data-source a skos:Concept, owl:Class ;
     skos:definition "Entity from which data about a resource are obtained."@en, "Entita, ze které jsou získávána data o zdroji."@cs ;
     rdfs:comment "Entity from which data about a resource are obtained."@en, "Entita, ze které jsou získávána data o zdroji."@cs .
 
-### TODO:IDK #dd:databázová-tabulka-jako-zdroj-dat a skos:Concept . 
+#dd:databázová-tabulka-jako-zdroj-dat a skos:Concept . 
 dd:database-table-as-data-source a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:database-table, dd:data-source ;
     skos:broader dd:database-table , dd:data-source ;
@@ -486,7 +486,7 @@ dd:has-value-from-codelist a skos:Concept, owl:ObjectProperty ;
     skos:definition "Relation linking an attribute of a database table to the codelist that constrains its values."@en, "Vztah, který propojuje atribut databázové tabulky s číselníkem, který omezuje jeho hodnoty."@cs ;
     rdfs:comment "Relation linking an attribute of a database table to the codelist that constrains its values."@en, "Vztah, který propojuje atribut databázové tabulky s číselníkem, který omezuje jeho hodnoty."@cs .
 
-### TODO:IDK #dd:referenční-atribut-záznamu a skos:Concept . 
+#dd:referenční-atribut-záznamu a skos:Concept . 
 dd:reference-attribute-of-record a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:attribute-of-record ;
     skos:broader dd:attribute-of-record ;
@@ -704,7 +704,6 @@ dd:has-data-attribute-of-record a skos:Concept, owl:ObjectProperty ;
     skos:definition "Relation linking a record to one of its data attributes."@en, "Vztah, který propojuje záznam s jedním z jeho datových atributů."@cs ;
     rdfs:comment "Relation linking a record to one of its data attributes."@en, "Vztah, který propojuje záznam s jedním z jeho datových atributů."@cs .
 
-### TODO:IDK přistupujeme ke katalogu jako k datové sadě. je to správně? 
 #dd:katalog a skos:Concept . 
 dd:catalogue a skos:Concept, owl:Class ;
     rdfs:subClassOf dd:dataset ;
@@ -714,15 +713,14 @@ dd:catalogue a skos:Concept, owl:Class ;
     skos:definition "Dataset that is a curated collection of descriptions of other datasets."@en, "Datová sada, která je spravovaným souborem popisů jiných datových sad."@cs ;
     rdfs:comment "Dataset that is a curated collection of descriptions of other datasets."@en, "Datová sada, která je spravovaným souborem popisů jiných datových sad."@cs .
 
-### TODO:IDK je to tak, že slovník definuje pojmy v kontextu dokumentu, nebo popisuje pojmy z toho dokumentu?
 #dd:popisuje-dokument a skos:Concept . 
 dd:describes-document a skos:Concept, owl:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:vocabulary ;
     rdfs:range dd:document ;
     skos:prefLabel "Describes document"@en, "Popisuje dokument"@cs ;
-    skos:definition "Relation linking a vocabulary to the document in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, v jehož kontextu definuje pojmy."@cs ;
-    rdfs:comment "Relation linking a vocabulary to the document in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, v jehož kontextu definuje pojmy."@cs .
+    skos:definition "Relation linking a vocabulary to the document whose terms it describes or in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje, nebo v jehož kontextu je definuje."@cs ;
+    rdfs:comment "Relation linking a vocabulary to the document whose terms it describes or in whose context it defines terms."@en, "Vztah, který propojuje slovník s dokumentem, jehož pojmy popisuje, nebo v jehož kontextu je definuje."@cs .
 
 #dd:uživatel a skos:Concept . 
 dd:user a skos:Concept, owl:Class ;

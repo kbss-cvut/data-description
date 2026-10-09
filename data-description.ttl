@@ -802,23 +802,23 @@ dd:replacement-of-entity a skos:Concept, owl:Class ;
     skos:definition "Change that replaces entity identifier with other identifier."@en, "Změna, která nahrazuje identifkátor entity jiným."@cs ;
     rdfs:comment "Change that replaces entity identifier with other identifier."@en, "Změna, která nahrazuje identifkátor entity jiným."@cs .
 
-#dd:nahrazuje-entitu a skos:Concept .
-dd:replaces-entity a skos:Concept, rdfs:ObjectProperty ;
+#dd:má-původní-entitu a skos:Concept .
+dd:has-replaced-entity a skos:Concept, rdfs:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:replacement-of-entity ;
     rdfs:range owl:Thing ;
-    skos:prefLabel "Replaces entity"@en, "Nahrazuje entitu"@cs ;
-    skos:definition "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení identifikátoru entity s původní entitou."@cs ;
-    rdfs:comment "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení identifikátoru entity s původní entitou."@cs .
+    skos:prefLabel "Has replaced entity"@en, "Má původní entitu"@cs ;
+    skos:definition "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení entity s původní entitou."@cs ;
+    rdfs:comment "Relation linking a replacement of entity to the original entity."@en, "Vztah, který propojuje nahrazení entity s původní entitou."@cs .
 
-#dd:je-nahrazeno-entitou a skos:Concept .
-dd:is-replaced-by-entity a skos:Concept, rdfs:ObjectProperty ;
+#dd:má-novou-entitu a skos:Concept .
+dd:has-replacing-entity a skos:Concept, rdfs:ObjectProperty ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     rdfs:domain dd:replacement-of-entity ;
     rdfs:range owl:Thing ;
-    skos:prefLabel "Is replaced by entity"@en, "Je nahrazeno entitou"@cs ;
-    skos:definition "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení identifikátoru entity s novou entitou."@cs ;
-    rdfs:comment "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení identifikátoru entity s novou entitou."@cs .
+    skos:prefLabel "Has replacing entity"@en, "Má novou entity"@cs ;
+    skos:definition "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení entity s novou entitou."@cs ;
+    rdfs:comment "Relation linking a replacement of entity to the new entity."@en, "Vztah, který propojuje nahrazení entity s novou entitou."@cs .
 
 #dd:má-změněnou-entitu a skos:Concept . 
 dd:has-changed-entity a skos:Concept, owl:ObjectProperty ;

@@ -19,8 +19,8 @@
 
 <http://onto.fel.cvut.cz/ontologies/data-description>
     a owl:Ontology, skos:ConceptScheme ;
-    owl:versionIRI <http://onto.fel.cvut.cz/ontologies/data-description/version/2.0.0> ;
-    owl:versionInfo "2.0.0" ;
+    owl:versionIRI <http://onto.fel.cvut.cz/ontologies/data-description/version/2.1.0> ;
+    owl:versionInfo "2.1.0" ;
     dct:title "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     rdfs:label "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     dct:abstract "Data Description Ontology is a fundamental ontology for description of various data sources and associated documents using vocabularies and records. It is based on the RDF(s)/OWL, using Simple Knowledge Organisation System (SKOS) and Dublin Core terms."@en ,

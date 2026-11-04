@@ -93,7 +93,8 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
                        dd:state-of-term ,
                        dd:user ,
                        dd:version-of-object ,
-                       dd:vocabulary .
+                       dd:vocabulary ,
+                       dd:collection .
 
 ################################################################################
 #  Authors
@@ -147,6 +148,27 @@ dd:term a skos:Concept, owl:Class ;
                     "Záznam, který nese význam definovaný ve slovníku a je vázán na kontext daného zdroje, zpravidla dokumentu nebo datové sady."@cs ;
     rdfs:comment "Record that carries a meaning defined within a vocabulary and is bound to the context of a given resource, usually a document or a dataset."@en ,
                  "Záznam, který nese význam definovaný ve slovníku a je vázán na kontext daného zdroje, zpravidla dokumentu nebo datové sady."@cs .
+
+### dd:collection
+dd:collection a skos:Concept, owl:Class ;
+    rdfs:subClassOf skos:Collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Collection"@en, "Kolekce"@cs ;
+    skos:definition "Labeled  collection of concepts and other collections. The order of collection members is not defined."@en,
+                    "Pojmenovaná kolekce pojmů a jiných kolekcí. Pořadí členů kolekce není definováno."@cs ;
+    rdfs:comment "Labeled  collection of concepts and other collections. The order of collection members is not defined."@en,
+                 "Pojmenovaná kolekce pojmů a jiných kolekcí. Pořadí členů kolekce není definováno."@cs .
+
+### dd:ordered-collection
+dd:ordered-collection a :skosConcept, owl:Class ;
+    rdfs:subClassOf skos:OrderedCollection, dd:collection ;
+    skos:broader dd:collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Ordered collection"@en, "Seřazená kolekce"@cs ;
+    skos:definition "Labeled  collection of concepts and other collections with defined order of members."@en,
+                    "Pojmenovaná kolekce pojmů a jiných kolekcí s definovaným pořadím členů."@cs ;
+    rdfs:comment "Labeled  collection of concepts and other collections with defined order of members."@en,
+                 "Pojmenovaná kolekce pojmů a jiných kolekcí s definovaným pořadím členů."@cs .
 
 ### dd:state-of-term  (formerly dd:stav-pojmu)
 dd:state-of-term a skos:Concept, owl:Class ;
@@ -1192,7 +1214,7 @@ dd:has-version-of-collection a skos:Concept, owl:ObjectProperty ;
     rdfs:subPropertyOf dd:has-version ;
     skos:broader dd:has-version ;
     owl:inverseOf dd:is-version-of-collection ;
-    rdfs:domain skos:Collection ;
+    rdfs:domain dd:collection ;
     rdfs:range dd:version-of-collection ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Has collection version"@en, "Má verzi kolekce"@cs ;
@@ -1207,7 +1229,7 @@ dd:is-version-of-collection a skos:Concept, owl:ObjectProperty ;
     skos:broader dd:is-version-of ;
     owl:inverseOf dd:has-version-of-collection ;
     rdfs:domain dd:version-of-collection ;
-    rdfs:range skos:Collection ;
+    rdfs:range dd:collection ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Is version of collection"@en, "Je verzí kolekce"@cs ;
     skos:definition "Relation linking a version of collection to the collection whose state it captures."@en ,

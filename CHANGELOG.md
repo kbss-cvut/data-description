@@ -1,5 +1,8 @@
 # Data Description Ontology Change Log
 
+## 2.1.0 - 2026-10-29
+- Added description for versioning SKOS collections.
+
 ## 2.0.0 - 2026-06-16
 - IRIs are based on English names
 - major revisions in ontology concepts, removed Glossary and Model, Vocabulary is now subclass of bot skos:ConceptScheme and owl:Ontology

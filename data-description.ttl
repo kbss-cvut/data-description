@@ -19,8 +19,8 @@
 
 <http://onto.fel.cvut.cz/ontologies/data-description>
     a owl:Ontology, skos:ConceptScheme ;
-    owl:versionIRI <http://onto.fel.cvut.cz/ontologies/data-description/version/2.0.0> ;
-    owl:versionInfo "2.0.0" ;
+    owl:versionIRI <http://onto.fel.cvut.cz/ontologies/data-description/version/2.1.0> ;
+    owl:versionInfo "2.1.0" ;
     dct:title "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     rdfs:label "Data Description Ontology"@en, "Ontologie pro Popis dat"@cs ;
     dct:abstract "Data Description Ontology is a fundamental ontology for description of various data sources and associated documents using vocabularies and records. It is based on the RDF(s)/OWL, using Simple Knowledge Organisation System (SKOS) and Dublin Core terms."@en ,
@@ -31,14 +31,14 @@ The vocabulary and the terms in it describe the basic entity, which is represent
 
 Another entity described in a dictionary is a 'document'. A document is an abstract entity representing a document as an idea. Its physical manifestation is, for example, 'file', that is already part of the description of the physical storage of data. In addition to file, this applies to 'database-table', 'codelist' and its values, and 'sql-database-query'.
 
-Ontology also comprehensively addresses life cycle management and change auditing. The basic concept is 'change', which models the life cycle by dividing it into 'creation-of-entity', 'update-of-entity', and 'deletion-of-entity'. Information about the new and original value is also part of the change life cycle. Versioning is also part of tracking the life cycle of objects, which allows mapping historical development for both individual terms and entire vocabularies. Lifecycle events are linked to internal 'user' management."""@en ,
+Ontology also comprehensively addresses life cycle management and change auditing. The basic concept is 'change', which models the life cycle by dividing it into 'creation-of-entity', 'update-of-entity', and 'deletion-of-entity'. Information about the new and original value is also part of the change life cycle. Versioning is also part of tracking the life cycle of objects, which allows mapping historical development for individual terms, collections, and entire vocabularies. Lifecycle events are linked to internal 'user' management."""@en ,
                     """Ontologie pro popis dat poskytuje jednotný rámec pro popis datových struktur a datových zdrojů prostřednictvím slovníků a jejich pojmů včetně provenance. 'Slovník' je instancí tříd 'skos:ConceptScheme' a 'owl:Ontology', 'pojem' je pak instancí 'skos:Concept'. Ontologie obsahuje seznam pojmů a jejich popis, které jsou vázány k určitému zdroji ('zdroj-dat', nebo 'zdroj-záznamu' pro konkrétní záznamy), a mají význam daný v kontextu dané entity (zpravidla dokumentu nebo datové sady). 
 
 Slovník a pojmy v něm popisuje základní entitu, která je v ontologii reprezentována pojmem 'zdroj'. Jeho specializacemi jsou 'datová-sada', 'databáze' a 'soubor'. Pojem 'datová-sada' je agregovatelný do třídy 'katalog'. Ontologie slouží k popisu těchto zdrojů prostřednictvím 'záznamů'. Specifickým případem 'záznamu' je 'pojem'. Popis datové sady pomocí 'záznamů' je shromažďován ve 'slovníku'.
 
 Další entitou popsanou ve slovníku je 'dokument'. Dokument je abstraktní entita představující dokument jako ideu. Jeho fyzickou manifestací je například 'soubor'. Ten je už součástí popisu fyzického uložení dat. Kromě souboru se to týká 'databázové-tabulky', 'číselníku' a jeho hodnot a 'dotazu-do-SQL-databáze'.
 
-Ontologie komplexně řeší i správu životního cyklu a auditování změn. Základním pojmem je 'změna', která modeluje životní cyklus rozdělením na 'vytvoření-entity', 'úpravu-entity' a 'smazání-entity'. Součástí životního cyklu změny je i informace o nové a původní hodnotě. Součástí sledování životního cyklu objektů je i verzování, což umožňuje mapovat historický vývoj jak pro jednotlivé pojmy, tak pro celé slovníky. Události životního cyklu jsou navázány na interní správu 'uživatelů'.
+Ontologie komplexně řeší i správu životního cyklu a auditování změn. Základním pojmem je 'změna', která modeluje životní cyklus rozdělením na 'vytvoření-entity', 'úpravu-entity' a 'smazání-entity'. Součástí životního cyklu změny je i informace o nové a původní hodnotě. Součástí sledování životního cyklu objektů je i verzování, což umožňuje mapovat historický vývoj jak pro jednotlivé pojmy a kolekce, tak pro celé slovníky. Události životního cyklu jsou navázány na interní správu 'uživatelů'.
 """@cs ;
     dct:creator <https://orcid.org/0000-0002-3844-426X> ;
     dct:contributor <https://orcid.org/0000-0002-2451-2348> ;
@@ -93,7 +93,8 @@ Ontologie komplexně řeší i správu životního cyklu a auditování změn. Z
                        dd:state-of-term ,
                        dd:user ,
                        dd:version-of-object ,
-                       dd:vocabulary .
+                       dd:vocabulary ,
+                       dd:collection .
 
 ################################################################################
 #  Authors
@@ -147,6 +148,27 @@ dd:term a skos:Concept, owl:Class ;
                     "Záznam, který nese význam definovaný ve slovníku a je vázán na kontext daného zdroje, zpravidla dokumentu nebo datové sady."@cs ;
     rdfs:comment "Record that carries a meaning defined within a vocabulary and is bound to the context of a given resource, usually a document or a dataset."@en ,
                  "Záznam, který nese význam definovaný ve slovníku a je vázán na kontext daného zdroje, zpravidla dokumentu nebo datové sady."@cs .
+
+### dd:collection
+dd:collection a skos:Concept, owl:Class ;
+    rdfs:subClassOf skos:Collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Collection"@en, "Kolekce"@cs ;
+    skos:definition "Labeled  collection of concepts and other collections."@en,
+                    "Pojmenovaná kolekce pojmů a jiných kolekcí."@cs ;
+    rdfs:comment "Labeled  collection of concepts and other collections."@en,
+                 "Pojmenovaná kolekce pojmů a jiných kolekcí."@cs .
+
+### dd:ordered-collection
+dd:ordered-collection a :skosConcept, owl:Class ;
+    rdfs:subClassOf skos:OrderedCollection, dd:collection ;
+    skos:broader dd:collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Ordered collection"@en, "Seřazená kolekce"@cs ;
+    skos:definition "Labeled  collection of concepts and other collections with defined order of members."@en,
+                    "Pojmenovaná kolekce pojmů a jiných kolekcí s definovaným pořadím členů."@cs ;
+    rdfs:comment "Labeled  collection of concepts and other collections with defined order of members."@en,
+                 "Pojmenovaná kolekce pojmů a jiných kolekcí s definovaným pořadím členů."@cs .
 
 ### dd:state-of-term  (formerly dd:stav-pojmu)
 dd:state-of-term a skos:Concept, owl:Class ;
@@ -1096,6 +1118,17 @@ dd:version-of-term a skos:Concept, owl:Class ;
     rdfs:comment "Snapshot of the state of a term at a given point in time."@en ,
                  "Zachycený stav pojmu v daném okamžiku."@cs .
 
+### dd:version-of-collection
+dd:version-of-collection a skos:Concept, owl:Class ;
+    rdfs:subClassOf dd:version-of-object ;
+    skos:broader dd:version-of-object ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Version of collection"@en, "Verze kolekce"@cs ;
+    skos:definition "Snapshot of the state of a collection at a given point in time."@en ,
+                    "Zachycený stav kolekce v daném okamžiku."@cs ;
+    rdfs:comment "Snapshot of the state of a collection at a given point in time."@en ,
+                 "Zachycený stav kolekce v daném okamžiku."@cs .
+
 ### dd:has-version  (formerly dd:má-verzi)
 dd:has-version a skos:Concept, owl:ObjectProperty ;
     owl:inverseOf dd:is-version-of ;
@@ -1175,6 +1208,34 @@ dd:is-version-of-term a skos:Concept, owl:ObjectProperty ;
                     "Vztah, který propojuje verzi pojmu s pojmem, jehož stav zachycuje."@cs ;
     rdfs:comment "Relation linking a version of term to the term whose state it captures."@en ,
                  "Vztah, který propojuje verzi pojmu s pojmem, jehož stav zachycuje."@cs .
+
+### dd:has-version-of-collection
+dd:has-version-of-collection a skos:Concept, owl:ObjectProperty ;
+    rdfs:subPropertyOf dd:has-version ;
+    skos:broader dd:has-version ;
+    owl:inverseOf dd:is-version-of-collection ;
+    rdfs:domain dd:collection ;
+    rdfs:range dd:version-of-collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Has collection version"@en, "Má verzi kolekce"@cs ;
+    skos:definition "Relation linking a collection to one of its versions."@en ,
+                    "Vztah, který propojuje kolekci s jednou z jejích verzí."@cs ;
+    rdfs:comment "Relation linking a collection to one of its versions."@en ,
+                 "Vztah, který propojuje kolekci s jednou z jejích verzí."@cs .
+
+### dd:is-version-of-collection
+dd:is-version-of-collection a skos:Concept, owl:ObjectProperty ;
+    rdfs:subPropertyOf dd:is-version-of ;
+    skos:broader dd:is-version-of ;
+    owl:inverseOf dd:has-version-of-collection ;
+    rdfs:domain dd:version-of-collection ;
+    rdfs:range dd:collection ;
+    skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
+    skos:prefLabel "Is version of collection"@en, "Je verzí kolekce"@cs ;
+    skos:definition "Relation linking a version of collection to the collection whose state it captures."@en ,
+                    "Vztah, který propojuje verzi kolekce s kolekcí, jejíž stav zachycuje."@cs ;
+    rdfs:comment "Relation linking a version of collection to the collection whose state it captures."@en ,
+                 "Vztah, který propojuje verzi kolekce s kolekcí, jejíž stav zachycuje."@cs .
 
 ### dd:has-date-and-time-of-creation-of-version  (formerly dd:má-datum-a-čas-vytvoření-verze)
 dd:has-date-and-time-of-creation-of-version a skos:Concept, owl:DatatypeProperty ;

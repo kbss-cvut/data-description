@@ -154,10 +154,10 @@ dd:collection a skos:Concept, owl:Class ;
     rdfs:subClassOf skos:Collection ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
     skos:prefLabel "Collection"@en, "Kolekce"@cs ;
-    skos:definition "Labeled  collection of concepts and other collections. The order of collection members is not defined."@en,
-                    "Pojmenovaná kolekce pojmů a jiných kolekcí. Pořadí členů kolekce není definováno."@cs ;
-    rdfs:comment "Labeled  collection of concepts and other collections. The order of collection members is not defined."@en,
-                 "Pojmenovaná kolekce pojmů a jiných kolekcí. Pořadí členů kolekce není definováno."@cs .
+    skos:definition "Labeled  collection of concepts and other collections."@en,
+                    "Pojmenovaná kolekce pojmů a jiných kolekcí."@cs ;
+    rdfs:comment "Labeled  collection of concepts and other collections."@en,
+                 "Pojmenovaná kolekce pojmů a jiných kolekcí."@cs .
 
 ### dd:ordered-collection
 dd:ordered-collection a :skosConcept, owl:Class ;

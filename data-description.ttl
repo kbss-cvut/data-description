@@ -160,7 +160,7 @@ dd:collection a skos:Concept, owl:Class ;
                  "Pojmenovaná kolekce pojmů a jiných kolekcí."@cs .
 
 ### dd:ordered-collection
-dd:ordered-collection a :skosConcept, owl:Class ;
+dd:ordered-collection a skos:Concept, owl:Class ;
     rdfs:subClassOf skos:OrderedCollection, dd:collection ;
     skos:broader dd:collection ;
     skos:inScheme <http://onto.fel.cvut.cz/ontologies/data-description> ;
